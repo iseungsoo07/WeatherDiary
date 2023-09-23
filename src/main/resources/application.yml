@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/weather?serverTimezone=UTC&characterEncoding=UTF-8
+    username: root
+    password: choco025874
+  jpa:
+    show-sql: true
+    database: mysql
+
+openweathermap:
+  key: 4f1f18891fd0821ced04cb5f02b3d316
+

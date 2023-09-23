@@ -1,7 +1,9 @@
 package com.zerobase.myweather.service;
 
 import com.zerobase.myweather.domain.Diary;
+import com.zerobase.myweather.exception.DiaryException;
 import com.zerobase.myweather.repository.DiaryRepository;
+import com.zerobase.myweather.type.ErrorCode;
 import lombok.RequiredArgsConstructor;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -17,6 +19,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -44,6 +47,15 @@ public class DiaryService {
                 .build();
 
         diaryRepository.save(newDiary);
+    }
+
+    @Transactional(readOnly = true)
+    public List<Diary> readDiary(LocalDate date) {
+        if (date.isAfter(LocalDate.ofYearDay(3000, 1))) {
+            throw new DiaryException(ErrorCode.TOO_FAR_IN_THE_FUTURE);
+        }
+
+        return diaryRepository.findAllByDate(date);
     }
 
 
@@ -104,4 +116,6 @@ public class DiaryService {
 
         return resultMap;
     }
+
+
 }

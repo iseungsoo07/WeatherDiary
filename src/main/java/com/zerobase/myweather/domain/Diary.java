@@ -1,9 +1,6 @@
 package com.zerobase.myweather.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,6 +10,7 @@ import java.time.LocalDate;
 
 @Entity
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -30,4 +28,15 @@ public class Diary {
     private String text;
 
     private LocalDate date;
+
+    public void updateText(String text) {
+        this.text = text;
+    }
+
+    public void setDateWeather(DateWeather dateWeather) {
+        this.weather = dateWeather.getWeather();
+        this.date = dateWeather.getDate();
+        this.temperature = dateWeather.getTemperature();
+        this.icon = dateWeather.getIcon();
+    }
 }

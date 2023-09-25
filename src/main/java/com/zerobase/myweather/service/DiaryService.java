@@ -44,7 +44,7 @@ public class DiaryService {
     private String apiKey;
 
     @Scheduled(cron = "0 0 1 * * *")
-    public void saveWeatherDateEvery1Am() {
+    public void saveDateWeatherEvery1Am() {
         logger.info("오늘의 날씨 데이터 저장");
         dateWeatherRepository.save(getWeatherFromApi());
     }

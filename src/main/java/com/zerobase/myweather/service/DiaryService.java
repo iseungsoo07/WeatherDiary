@@ -96,6 +96,10 @@ public class DiaryService {
             throw new DiaryException(ErrorCode.TOO_FAR_IN_THE_FUTURE);
         }
 
+        if(date.isBefore(LocalDate.ofYearDay(1800, 1))) {
+            throw new DiaryException(ErrorCode.TOO_OLD_DATE);
+        }
+
         return diaryRepository.findAllByDate(date);
     }
 

@@ -1,7 +1,7 @@
 package com.zerobase.myweather.controller;
 
 import com.zerobase.myweather.domain.Diary;
-import com.zerobase.myweather.service.DiaryService;
+import com.zerobase.myweather.service.DiaryServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -19,7 +19,7 @@ import static org.springframework.format.annotation.DateTimeFormat.ISO;
 @Tag(name = "날씨 일기 프로젝트 controller", description = "날씨 일기 프로젝트 API Document")
 public class DiaryController {
 
-    private final DiaryService diaryService;
+    private final DiaryServiceImpl diaryService;
 
 
     @Operation(summary = "일기 생성 API", description = "날씨 일기를 생성합니다.")

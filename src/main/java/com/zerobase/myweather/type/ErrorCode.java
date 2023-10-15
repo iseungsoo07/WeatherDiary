@@ -9,7 +9,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public enum ErrorCode {
     TOO_OLD_DATE("너무 과거의 날짜입니다."),
-    TOO_FAR_IN_THE_FUTURE("너무 미래의 날짜입니다.");
+    TOO_FAR_IN_THE_FUTURE("너무 미래의 날짜입니다."),
+    INTERNAL_SERVER_ERROR("내부 서버 오류");
 
     private String description;
 }
